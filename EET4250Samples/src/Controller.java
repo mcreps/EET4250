@@ -6,6 +6,8 @@ import org.slf4j.LoggerFactory;
 
 import com.connection.DatabaseManager;
 
+import tables.Tables;
+
 public class Controller {
 
 	private static Logger logger = LoggerFactory.getLogger(Controller.class);
@@ -17,10 +19,9 @@ public class Controller {
 		Connection connection = databaseManager.establishConnection();
 		if (null == connection) {
 			System.exit(1);
-		}
-		
+		}		
 		Scanner scanner = new Scanner(System.in);
-		
+		Tables.tableBuilds(connection);
 		
 		/* Close the database connection */
 		databaseManager.closeConnection(connection);
